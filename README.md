@@ -45,14 +45,17 @@ Check the fastqc output files to make sure all trimming parameters were correct 
 2) Build a bowtie2 index for the reference genome
 3) Create a miRNA GTF file from the whole GTF:
 
+```sh
+grep 'miRNA' Macaca_mulatta.Mmul_8.0.1.95.gtf > Macaca_mulatta.Mmul_8.0.1.95_miRNA.gtf
+
 ```
+Copy the header from the whole GTF to your miRNA GTF
 
+Create the sqlite file you will need for counting
 
-```
+*03/15/19 Macaca_mulatta.Mmul_8.0.1.dna.toplevel.fa*
 
-*Macaca_mulatta.Mmul_8.0.1.dna.toplevel.fa*
-
-*Macaca_mulatta.Mmul_8.0.1.95.gtf*
+*03/15/19 Macaca_mulatta.Mmul_8.0.1.95.gtf*
 
 
 
