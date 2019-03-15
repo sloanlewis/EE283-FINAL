@@ -84,3 +84,6 @@ saveDb(txdb, file="./data/Macaca_mulatta.Mmul_8.0.1.95_miRNA.sqlite")
 
 _Check all file names and paths before running._
 
+## Run small_RNA_edgeR.R line by line to generate differential gene expression analysis file based on comparisons specified in targets file
+
+
