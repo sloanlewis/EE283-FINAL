@@ -15,3 +15,22 @@ Using a nonhuman primate model of alcohol self-administration, our lab is intere
 
 ## Notes
 In the Messaoudi Lab, we are currently still using the UC Riverside HPC as the lab moved from there recently. My code is all written to run on that cluster as that is where I will need to run it in the future.
+
+## Step 1: Generate fastqc reports for all sequencing files
+
+```
+fastqc your_file.fq.gz
+
+```
+look at these reports to see starting quality of the sequencing run and to see which adapters are being detected
+
+## Step 2: Trim all of the files in a directory according to trim_galore miRNA parameters
+
+```
+sh ../../../small-RNA/trim_galore_smallRNA_dir.sh your_directory
+
+```
+_Always set a --length 18 minumum or trim_galore will automatically trim sequences less that 20bp_
+
+_Make sure to check the file paths_
+
