@@ -142,3 +142,4 @@ scatterplot3d(pca2[,1], pca2[,2], pca2[,3], color = as.numeric(groups), pch=19, 
 dev.off()
 ```
 
+![alt text] (https://github.com/sloanlewis/EE283-FINAL/blob/master/3D_14.pdf "3D PCA")
