@@ -65,7 +65,7 @@ saveDb(txdb, file="./data/Macaca_mulatta.Mmul_8.0.1.95_miRNA.sqlite")
 
 *03/15/19 Macaca_mulatta.Mmul_8.0.1.95.gtf*
 
-4) Download small_RNA_alignemnt.R, bowtie-smallRNA.param, .BatchJobs.R, and slurm.tmpl for this step
+4) Make sure small_RNA_alignemnt.R, bowtie-smallRNA.param, .BatchJobs.R, and slurm.tmpl are downloaded for this step
 
 5) Run the script small_RNA_alignment.R in R to submit the alignments to the cluster
   
