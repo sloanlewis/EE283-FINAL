@@ -14,7 +14,7 @@ Using a nonhuman primate model of alcohol self-administration, our lab is intere
 8) Examine differential miRNA expression using edgeR
 
 ## Notes
-In the Messaoudi Lab, we are currently still using the UC Riverside HPC as the lab moved from there recently. My code is all written to run on that cluster as that is where I will need to run it in the future.
+In the Messaoudi Lab, we are currently still using the UC Riverside HPC as the lab moved from there recently. My code is all written to run on that cluster as that is where I will need to run it in the future. This pipeline is adapted from the systemPipeR pipeline availible here: https://bioconductor.org/packages/release/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html
 
 ## Step 1: Generate fastqc reports for all sequencing files
 
@@ -32,5 +32,7 @@ sh ../../../small-RNA/trim_galore_smallRNA_dir.sh your_directory
 ```
 _Always set a --length 18 minumum or trim_galore will automatically trim sequences less that 20bp_
 
-_Make sure to check the file paths_
+_Make sure to check the input file names and the paths to the scripts are correct_
+
+Check the fastqc output files to make sure all trimming parameters were correct and record the number of sequences post-trimming for your records. Check for any leftover adapter sequences or over-represented nucleotides at the 5' or 3' end that may need to be clipped off.
 
