@@ -26,7 +26,7 @@ look at these reports to see starting quality of the sequencing run and to see w
 ## Step 2: Trim all of the files in a directory according to trim_galore miRNA parameters
 
 ```
-sh ../../../small-RNA/trim_galore_smallRNA_dir.sh your_directory
+sh trim_galore_smallRNA_dir.sh your_directory
 ```
 _Always set a --length 18 minumum or trim_galore will automatically trim sequences less that 20bp_
 
