@@ -72,5 +72,14 @@ saveDb(txdb, file="./data/Macaca_mulatta.Mmul_8.0.1.95_miRNA.sqlite")
  _Run the script from your main directory_
  
  _slurm.tmpl must be in the directory you are running the script from or it will not work_
+ 
+ ## Generate counts and RPKM files for DEG analysis
+ 
+ Submit small_RNA_readcounting_cluster.R to the cluster using counts_batch.sh
+ 
+ ```
+ sbatch -p highmem --mem=100g --time=24:00:00 counts_batch.sh
+ 
+ ```
 
 
