@@ -100,4 +100,45 @@ _Check all file names and paths before running._
 
 ## Run small_RNA_edgeR.R line by line to generate differential gene expression analysis file based on comparisons specified in targets file
 
+## Generate some preliminary graphs for the data
+
+```
+#Sample outlier analysis
+library(ape)
+rpkmDFmiR <- read.delim("./results/rpkmDFmiR.xls", row.names=1, check.names=FALSE)[,-19]
+rpkmDFmiR <- rpkmDFmiR[rowMeans(rpkmDFmiR) > 50,]
+d <- cor(rpkmDFmiR, method="spearman")
+hc <- hclust(as.dist(1-d))
+pdf("./results/sample_tree.pdf")
+plot.phylo(as.phylo(hc), type="p", edge.col="blue", edge.width=2, show.node.label=TRUE, no.margin=TRUE)
+dev.off()
+```
+
+
+
+```
+#Group-wise and sample wise PCA following rlog transformation
+library(DESeq2)
+countDFmiR <- as.matrix(read.table("./results/countDFmiR.xls"))
+colData <- data.frame(row.names=targets$SampleName, condition=targets$Factor)
+dds <- DESeqDataSetFromMatrix(countData = countDFmiR, colData = colData, design = ~ condition)
+rld <- rlog(dds)
+pdf("./results/PCA_group.pdf")
+plotPCA(rld)
+dev.off()
+```
+
+
+```
+#Groupwise 3D PCA using rlog
+library(scatterplot3d)
+colData <- data.frame(row.names=targets$SampleName, condition=targets$Factor)
+rld <- rlog(dds)
+pca <- prcomp(t(assay(rld)), center=TRUE)
+pca2 <- pca$x
+groups <- targets$Factor
+pdf("results/3D_miRNA.pdf")
+scatterplot3d(pca2[,1], pca2[,2], pca2[,3], color = as.numeric(groups), pch=19, type='h')
+dev.off()
+```
 
