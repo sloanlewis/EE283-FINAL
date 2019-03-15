@@ -114,7 +114,7 @@ plot.phylo(as.phylo(hc), type="p", edge.col="blue", edge.width=2, show.node.labe
 dev.off()
 ```
 
-![](https://github.com/sloanlewis/EE283-FINAL/blob/master/sample_tree_rlog_femaels.pdf "RPKM Tree")
+![tree_pdf](https://github.com/sloanlewis/EE283-FINAL/blob/master/sample_tree_rlog_femaels.pdf "RPKM Tree")
 
 ```
 #Group-wise and sample wise PCA following rlog transformation
@@ -128,7 +128,7 @@ plotPCA(rld)
 dev.off()
 ```
 
-![](https://github.com/sloanlewis/EE283-FINAL/blob/master/PCA_group_14_CMH.pdf "Group PCA")
+![pca_pdf](https://github.com/sloanlewis/EE283-FINAL/blob/master/PCA_group_14_CMH.pdf "Group PCA")
 
 ```
 #Groupwise 3D PCA using rlog
@@ -143,4 +143,4 @@ scatterplot3d(pca2[,1], pca2[,2], pca2[,3], color = as.numeric(groups), pch=19, 
 dev.off()
 ```
 
-![](https://github.com/sloanlewis/EE283-FINAL/blob/master/3D_14.pdf "3D PCA")
+![3d_pdf](https://github.com/sloanlewis/EE283-FINAL/blob/master/3D_14.pdf "3D PCA")
