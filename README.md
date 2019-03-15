@@ -51,7 +51,8 @@ grep 'miRNA' Macaca_mulatta.Mmul_8.0.1.95.gtf > Macaca_mulatta.Mmul_8.0.1.95_miR
 ```
 Copy the header from the whole GTF to your miRNA GTF
 
-Create the sqlite file you will need for counting
+Create the sqlite file you will need for counting:
+
 
 *03/15/19 Macaca_mulatta.Mmul_8.0.1.dna.toplevel.fa*
 
