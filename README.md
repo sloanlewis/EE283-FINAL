@@ -10,7 +10,7 @@ Using a nonhuman primate model of alcohol self-administration, our lab is intere
 4) Multiplex and sequence the libraries on a HiSeq 2500
 5) Assess the quality of the sequences (fastqc) after de-multiplexing
 6) Trim off adapter sequences and set quality and length cut-offs (trim_galore)
-7) Align sequences to the _Macaca mulatta_ genome and generate alignment report 
+7) Align sequences to the _Macaca mulatta_ genome and generate alignment report (bowtie2)
 8) Examine differential miRNA expression using edgeR
 
 ## Notes
@@ -38,4 +38,21 @@ Check the fastqc output files to make sure all trimming parameters were correct 
 
 *Note for the sequnces from 03/05/19, 1bp was clipped off the 5' end due to over-representation of T at the 5' position in almost every sequence. The script small_RNA_trimming_clip.sh will do that.*
 
-## Step 3: Align sequences to the 
+## Step 3: Generate the targets file, data, and results directory as described in systemPipeR
+
+## Step 4: Align trimmed files to the _Macaca mulatta_ genome
+1) Download the FASTA and GTF files from ensembl
+2) Build a bowtie2 index for the reference genome
+3) Create a miRNA GTF file from the whole GTF:
+
+```
+
+
+```
+
+*Macaca_mulatta.Mmul_8.0.1.dna.toplevel.fa*
+
+*Macaca_mulatta.Mmul_8.0.1.95.gtf*
+
+
+
