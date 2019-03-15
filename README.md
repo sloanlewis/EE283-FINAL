@@ -36,3 +36,6 @@ _Make sure to check the input file names and the paths to the scripts are correc
 
 Check the fastqc output files to make sure all trimming parameters were correct and record the number of sequences post-trimming for your records. Check for any leftover adapter sequences or over-represented nucleotides at the 5' or 3' end that may need to be clipped off.
 
+*Note for the sequnces from 03/05/19, 1bp was clipped off the 5' end due to over-representation of T at the 5' position in almost every sequence*
+
+## Step 3: Align sequences to the 
