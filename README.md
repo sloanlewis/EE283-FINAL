@@ -119,6 +119,7 @@ dev.off()
 ```
 #Group-wise and sample wise PCA following rlog transformation
 library(DESeq2)
+targets <- read.delim("targets.txt", comment.char = "#")
 countDFmiR <- as.matrix(read.table("./results/countDFmiR.xls"))
 colData <- data.frame(row.names=targets$SampleName, condition=targets$Factor)
 dds <- DESeqDataSetFromMatrix(countData = countDFmiR, colData = colData, design = ~ condition)
@@ -144,3 +145,10 @@ dev.off()
 ```
 
 ![3d_pdf](https://github.com/sloanlewis/EE283-FINAL/blob/master/3D_14.pdf "3D PCA")
+
+
+## Final wrap-up
+
+This project allowed me to get this pipeline running smoothly all the way through as well as document all my steps so that when I get more miRNA sequencing for this project soon, I will be able to analyze them more efficiently without having to trouble shoot problems I have already solved. Before this project, I also did not have a lot of the shell scripts running on whole directories or submitting to the cluster. This will save me a lot of time in the future. 
+
+One major issue I had with this project was figuring out which annotation file I should use for counting the reads because the macaca mulatta genome is not as well annotated as human. I tried using featureCounts with a miRBase GFF file, but the number of miRNAs counted was not quite as strong as when I used summarizeOverlaps and my ensembl GTF. Another issue has been that for some of the older plasma samples, I am struggling to get enough coverage of the genome because the alignment rates are much lower than for newer plasma. When I aligned the unmapped reads from those files to the whole GTF file, I found that about 30% were mRNAs suggesting that possibly some fragmented RNA is making it into my miRNA selection. I am still planning on trying to make this pipeline better in the future as new tools for miRNAs continue to be developed. 
