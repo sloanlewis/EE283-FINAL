@@ -20,7 +20,6 @@ In the Messaoudi Lab, we are currently still using the UC Riverside HPC as the l
 
 ```
 fastqc your_file.fq.gz
-
 ```
 look at these reports to see starting quality of the sequencing run and to see which adapters are being detected
 
@@ -28,7 +27,6 @@ look at these reports to see starting quality of the sequencing run and to see w
 
 ```
 sh ../../../small-RNA/trim_galore_smallRNA_dir.sh your_directory
-
 ```
 _Always set a --length 18 minumum or trim_galore will automatically trim sequences less that 20bp_
 
@@ -47,7 +45,6 @@ Check the fastqc output files to make sure all trimming parameters were correct 
 
 ```
 grep 'miRNA' Macaca_mulatta.Mmul_8.0.1.95.gtf > Macaca_mulatta.Mmul_8.0.1.95_miRNA.gtf
-
 ```
 Copy the header from the whole GTF to your miRNA GTF
 
@@ -58,7 +55,6 @@ R
 library(GenomicFeatures)
 txdb <- makeTxDbFromGFF(file="data/Macaca_mulatta.Mmul_8.0.1.95_miRNA.gtf", format="gtf", dataSource="ENSEMBL", organism="Macaca mulatta")
 saveDb(txdb, file="./data/Macaca_mulatta.Mmul_8.0.1.95_miRNA.sqlite")
-
 ```
 
 *03/15/19 Macaca_mulatta.Mmul_8.0.1.dna.toplevel.fa*
@@ -90,8 +86,7 @@ moduleload(modules(args))
 file.exists(outpaths(args))
 read_statsDF <- alignStats(args) 
 write.table(read_statsDF, "results/alignStats.xls", row.names=FALSE, quote=FALSE, sep="\t")
- 
- ```
+```
  
  ## Generate counts and RPKM files for DEG analysis
  
@@ -99,7 +94,6 @@ write.table(read_statsDF, "results/alignStats.xls", row.names=FALSE, quote=FALSE
  
  ```
  sbatch -p highmem --mem=100g --time=24:00:00 counts_batch.sh
- 
  ```
 
 _Check all file names and paths before running._
