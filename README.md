@@ -73,6 +73,26 @@ saveDb(txdb, file="./data/Macaca_mulatta.Mmul_8.0.1.95_miRNA.sqlite")
  
  _slurm.tmpl must be in the directory you are running the script from or it will not work_
  
+ 6) Check alignment stats
+ 
+ ```
+R
+library(systemPipeR)
+library(GenomicFeatures)
+#Read the targets file
+targets <- read.delim("targets.txt", comment.char = "#")
+#Check if targets file is correct
+targets
+#Create args
+args <- systemArgs(sysma="bowtie-smallRNA.param", mytargets="targets.txt")
+moduleload(modules(args))
+#Check if alignment files exist
+file.exists(outpaths(args))
+read_statsDF <- alignStats(args) 
+write.table(read_statsDF, "results/alignStats.xls", row.names=FALSE, quote=FALSE, sep="\t")
+ 
+ ```
+ 
  ## Generate counts and RPKM files for DEG analysis
  
  Submit small_RNA_readcounting_cluster.R to the cluster using counts_batch.sh
